@@ -1,0 +1,45 @@
+.FormulaireSaveWrapper {
+    // To keep some space below the form when the overlay is floating
+    min-height: 100px;
+    padding-top: 15px;
+}
+
+.FormulaireSave {
+    padding: 15px;
+    background: white;
+    display: flex;
+    align-items: center;
+    transition: 0.3s bottom;
+    bottom: -90px;
+    max-width: 100%;
+
+    //TODO: animate the overlay leaving the screen as well
+    &.floating {
+        position: fixed;
+        z-index: 200;
+        bottom: 10px;
+        border-radius: 5px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    }
+
+    .FormulaireSave-stretch {
+        flex-grow: 1;
+    }
+
+    .Button {
+        margin-left: 15px;
+    }
+
+    .in-error {
+        color: #d00;
+    }
+
+    .success {
+        color: #008000;
+    }
+}
+
+.FormulairePrimaryButton .Button-icon {
+    // Show icons on primary button. Not sure why core doesn't allow it...
+    display: inline-block;
+}

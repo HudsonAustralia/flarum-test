@@ -1,0 +1,39 @@
+.FormulaireConfiguration {
+    border: 1px solid #aaa;
+    border-radius: @border-radius;
+    padding: 0 15px 15px;
+    margin-bottom: 10px;
+    background: white;
+
+    .Checkbox {
+        display: inline-block;
+    }
+
+    .Form-group {
+        // To allow multiple inputs on a single line
+        display: flex;
+        margin-bottom: 10px;
+
+        // For the button next to an input (field type switcher)
+        .Button {
+            margin-left: 10px;
+        }
+    }
+}
+
+.FormulaireConfiguration-handle {
+    padding: 10px 0;
+    cursor: move;
+    text-align: center;
+    color: #aaa;
+
+    &.disabled {
+        cursor: not-allowed;
+    }
+}
+
+.FormulaireConfigurationSubFields {
+    background: #fafafa;
+    padding: 20px;
+    margin-bottom: 10px;
+}

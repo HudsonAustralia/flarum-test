@@ -1,0 +1,407 @@
+kilowhat-formulaire:
+    admin:
+        permissions:
+            heading: Formulaire
+            heading-advanced: Formulaire (options pour extensions tierces)
+            fill: => kilowhat-formulaire.ref.permissions.fill
+            seeOwnUser: => kilowhat-formulaire.ref.permissions.seeOwnUser
+            seeAnyUser: => kilowhat-formulaire.ref.permissions.seeAnyUser
+            editOwnUser: => kilowhat-formulaire.ref.permissions.editOwnUser
+            editAnyUser: => kilowhat-formulaire.ref.permissions.editAnyUser
+            seeOwnDiscussion: => kilowhat-formulaire.ref.permissions.seeOwnDiscussion
+            seeAnyDiscussion: => kilowhat-formulaire.ref.permissions.seeAnyDiscussion
+            editOwnDiscussion: => kilowhat-formulaire.ref.permissions.editOwnDiscussion
+            editAnyDiscussion: => kilowhat-formulaire.ref.permissions.editAnyDiscussion
+            create: Créer des formulaires (beta)
+            moderate: Gérer tous les formulaires
+            export: Exporter les réponses
+            exportUserDetails: Accès aux données utilisateur privées dans l'export
+            listForms: Voir la liste des formulaires non supprimés
+            listSubmissions: Voir la liste des soumissions
+        settings:
+            title: Réglages globaux des formulaires
+            max-file-size: Taille de fichier maximale (kB)
+            history-controls: Afficher annuler/refaire sur la page de saisie
+            side-nav-on-submission: Afficher la navigation latérale sur la page de saisie
+            checkbox-style: Style des cases à cocher
+            radio-style: Style des boutons radio
+            style-options:
+                far-square: Icône FontAwesome "Regular Square"
+                fas-square: Icône FontAwesome "Solid Square"
+                far-circle: Icône FontAwesome "Regular Circle"
+                fas-circle: Icône FontAwesome "Solid Circle"
+                switch: Interrupteur "Switch" Flarum
+                native: Contrôle natif du navigateur
+            horizontal-layout: Utiliser une organisation horizontale pour les formulaires
+            horizontal-layout-locations:
+                standaloneEdit: Page de remplissage et édition des formulaires indépendants
+                standaloneView: Page de consultation des formulaires indépendants
+                profileEdit: Page de modification du profil
+                profileView: Page de consultation du profil
+                signUp: Modale d'inscription (uniquement champs ajoutés par Formulaire)
+                discussionEdit: Modale de modification des champs de discussion
+                discussionView: Section de consultation des champs de discussion
+                discussionComposer: Compositeur de discussion
+            uniformComposerLayout: Organisation uniforme de tous les champs du compositeur de discussions
+            uniformComposerLayoutHelp: >
+                Modifie le style des champs étiquettes, titre et contenu pour imiter les champs Formulaire.
+                Ce style prend davantage de place, il est donc recommandé d'installer et activer le module <a>Composer Page</a>.
+
+    forum:
+        nav:
+            forms: => kilowhat-formulaire.ref.manager
+        form-index:
+            header:
+                title: => kilowhat-formulaire.ref.manager
+                documentation: Documentation en ligne
+                discuss: Discussion sur Flarum Discuss
+            tabs:
+                standalone: => kilowhat-formulaire.ref.type.standalone
+                discussion: => kilowhat-formulaire.ref.type.discussion
+                user: => kilowhat-formulaire.ref.type.user
+            empty: Aucun formulaire
+            load-more: Charger plus
+            search: Chercher dans les formulaires...
+            new: Nouveau formulaire
+            edit: Éditer
+            show: Voir
+            submissions: Réponses
+            columns:
+                title: Titre
+                accept-submissions: Ouvert
+                allow-modification: Modification
+                enabled: Activé
+                submissions: Réponses
+                actions: Actions
+        global-settings:
+            title: Permissions globales
+            admin-only: Seuls les administrateurs peuvent modifier les réglages globaux
+            permissions:
+                fill: => kilowhat-formulaire.ref.permissions.fill
+                seeOwnUser: => kilowhat-formulaire.ref.permissions.seeOwnUser
+                seeAnyUser: => kilowhat-formulaire.ref.permissions.seeAnyUser
+                editOwnUser: => kilowhat-formulaire.ref.permissions.editOwnUser
+                editAnyUser: => kilowhat-formulaire.ref.permissions.editAnyUser
+                seeOwnDiscussion: => kilowhat-formulaire.ref.permissions.seeOwnDiscussion
+                seeAnyDiscussion: => kilowhat-formulaire.ref.permissions.seeAnyDiscussion
+                editOwnDiscussion: => kilowhat-formulaire.ref.permissions.editOwnDiscussion
+                editAnyDiscussion: => kilowhat-formulaire.ref.permissions.editAnyDiscussion
+        form-create:
+            title: Nouveau formulaire
+            field:
+                title: Titre
+            button:
+                create: Créer
+        form-edit-header:
+            back: Retour
+            category:
+                standalone: => kilowhat-formulaire.ref.type.standalone
+                discussion: => kilowhat-formulaire.ref.type.discussion
+                user: => kilowhat-formulaire.ref.type.user
+            tabs:
+                template: Template
+                placement: Emplacement
+                access: Accès
+                notifications: Notifications
+                submissions: Réponses
+            access-status:
+                closed: Fermé
+                create: Création uniquement
+                edit: Édition uniquement
+                both: Création et édition
+                enabled: Actif
+                disabled: Brouillon
+            controls: Contrôles
+            template-export: Import/export du template
+            enable-expert-mode: Activer le mode expert
+            disable-expert-mode: Désactiver le mode expert
+            restore: Restaurer
+            hide: Supprimer
+            delete: Supprimer définitivement
+            delete-confirmation: Le formulaire "{title}" sera supprimé définitivement
+            fields:
+                private-title: Titre privé
+                slug: Segment URL personnalisé (optionnel)
+        form-edit:
+            warnings:
+                show-on-signup-invalid-permissions: >
+                    Vous devez définir "voir propres réponses" et "modifier propres réponses" sur "utilisateurs non activés" afin de pouvoir utiliser l'option "montrer dans le formulaire d'inscription".
+                show-on-composer-invalid-permissions: >
+                    Vérifiez que "voir propres réponses" et "modifier propres réponses" correspondent aux permissions de démarrage de discussion pour les tags sélectionnés afin de l'inclure dans le compositeur.
+                    Sélectionnez la permission "membres" si vous n'êtes pas certain.
+                    Ce message peut apparaître même si les réglages sont corrects.
+                linked-form-is-draft: >
+                    Le formulaire est actuellement en mode brouillon.
+                    Activez le formulaire dans "Accès" pour le faire apparaître sur le forum.
+                auto-link-permission-warning: >
+                    Les formulaires avec l'option "automatiquement créer une discussion" utilisent la permission globale de remplissage de formulaire lorsqu'ils sont accédés individuellement.
+                expert-mode-warning: >
+                    Le mode expert est activé.
+                    Il vous permet de configurer les clés de champs et les permissions par champ.
+                    Prenez connaissance de la documentation, car vous risquez de casser des choses!
+                section:
+                    template: Template
+                    permissions: Permissions
+            field:
+                link: Types de champs spéciaux
+                title: Titre public
+                show-on-creation:
+                    discussion: Montrer dans le compositeur de discussion
+                    discussionHelp: >
+                        Le compositeur de discussion de Flarum ne fonctionne pas bien avec de nombreux champs.
+                        Vous devriez installer le module <a>Composer Page</a> pour garantir que tous les champs soient accessibles sur tous les appareils.
+                    user: Montrer dans le formulaire d'inscription
+                automatic-discussion: Automatiquement créer une discussion à partir de la réponse
+                automatic-discussion-help: >
+                    Lorsque cette option est activée, le formulaire sera accessible comme un formulaire indépendant.
+                    Une réponse va automatiquement créer la discussion associée.
+                accept-submissions: Accepter de nouvelle réponses
+                allow-modification: Autoriser la modification des réponses
+                enable: Activer
+                max-submissions: Nombre de réponses maximum (laisser vide pour illimité)
+                send-confirmation-to-participants: Envoyer un email de confirmation aux participants
+                notify-emails: Envoyer une copie des données à cette liste d'adresses séparées par des virgules
+                web-confirmation-message: Message de confirmation sur le web (formattage activé)
+                permission-see-own: Voir ses propres réponses
+                permission-see-any: Voir les autres réponses
+                permission-edit-own: Modifier ses propres réponses
+                permission-edit-any: Modifier les autres réponses
+            link-options:
+                standalone: Indépendant
+                groups: Profil utilisateur
+                all-groups: Pour n'importe quel groupe
+                tags: Champs de discussions
+                all-tags: Pour n'importe quel tag
+            auto-discussion-options: Options pour les nouvelles discussions
+            email-confirmation-options: Modèle de l'email de confirmation
+            email-notification-options: Modèle de l'email de notification
+            exiting-with-unsaved-data: Vous avez des changements non enregistrés. Voulez-vous vraiment quitter la page?
+            preview: Aperçu
+            save-for-preview: Savegarder pour l'aperçu
+        auto-discussion-options-modal:
+            title: Options pour les discussiona automatiques
+            introduction: >
+                Ces réglages s'appliquent aux nouvelles discussions crées automatiquement avec les réponses à un champ de discussion.
+                Vous pouvez utiliser des valeurs provenant de la réponse avec une syntaxe utilisant des accolades et l'identifiant du champ.
+                Par défaut { title } et { content } seront utilisés respectivement.
+            submit: Validate changes
+            field:
+                title: Titre de la discussion
+                tags: Tags de la discussion
+                tags-help: >
+                    Liste des slugs des tags séparés par des virgules.
+                    Les tags sélectionnés seront ajoutés en plus du tag auquel ce formulaire est connecté.
+                content: Contenu du post
+        confirmation-email-options-modal:
+            title: Modèle de l'email
+            submit: Valider les changements
+            field:
+                title: Titre
+                message: Message
+        save-controls:
+            validation-errors: Veuillez vérifier les informations saisies
+            unsaved-changes: Vous avez des modifications non enregistrées
+            saved-at: Sauvegardé {ago}
+            undo: Annuler
+            redo: Refaire
+            save: Sauvegarder
+        permission-controls:
+            inherit: Par défaut
+            everyone_button: => core.admin.permissions_controls.everyone_button
+            disabled_members_button: Membres non activés et suspendus
+            members_button: => core.group.members
+        template-editor:
+            add-field: Ajouter un champ
+            title: Titre
+            description: Description
+            key: (Expert) Clé JSON dans le payload de réponse
+            fill-permission: (Expert) Permission de remplissage
+            required: Requis
+            rich: Texte riche (TextFormatter)
+            min: Minimum
+            max: Maximum
+            integer: Nombre entier
+            email: Email
+            regex: Expression régulière
+            mime: MIME type (séparé par des virgules, * possible comme second composant)
+            duplicate: Dupliquer le champ
+            other: Autoriser des valeurs utilisateur "autre"
+            delete: Supprimer le champ
+            missing-title: Champ sans titre
+            no-answer: Sans réponse
+            type:
+                short: Texte court
+                long: Texte long
+                number: Nombre
+                date: Date
+                checkbox: Cases à cocher
+                radio: Boutons radio
+                select: Menu déroulant
+                upload: Fichier
+                content: Contenu
+                items: Sous-entrées
+        options-editor:
+            columns:
+                title: Titre
+                key: (Expert) Clé unique
+            remove: Supprimer l'option
+            new-placeholder: Nouvelle option...
+        items-editor:
+            add: Ajouter une ligne
+            remove: Supprimer la ligne
+        upload-editor:
+            uploading: Envoi du fichier...
+            remove: Retirer le fichier
+        rich-text:
+            preview-placeholder: Un aperçu apparaît lorsque vous commencez à saisir
+        select:
+            choose: Choisir une option
+        choice:
+            other-label: 'Autre:'
+            other-placeholder: Saisir...
+        submission:
+            form-closed: Ce formulaire est clos.
+            form-full: Ce formulaire a atteint le nombre maxmimum de réponses.
+            edit-forbidden: Vous ne pouvez plus éditer cette réponse.
+            submitted-successfully: Votre réponse a bien été prise en compte.
+            edit-submission: Modifier la réponse
+            submit-other: Saisir une autre réponse
+            unlock: Déverouiller
+            lock: Verouiller
+            restore: Restaurer
+            hide: Supprimer
+            delete: Supprimer définitivement
+            delete-confirmation: La réponse datée du {date} sera supprimée définitivement
+        submission-index:
+            form-edit: Modifier le formulaire
+            form-show: Nouvelle réponse
+            show: Afficher
+            guest: Invité
+            load-more: Charger plus
+            empty: Pas encore de réponses
+            search: Chercher dans les réponses...
+            export: Télécharger
+            columns:
+                date: Date
+                user: Utilisateur
+                actions: Actions
+        badge:
+            locked: Verouillé
+            hidden: Caché
+        error-page:
+            denied-title: Permission refusée
+            denied-description: Il semble que vous n'avez pas accès à ce contenu. Essayez de vous connecter.
+            notfound-title: Contenu introuvable
+            notfound-description: Ce contenu ne semble pas exister, ou peut-être que vous n'y avez pas accès.
+        submission-sort:
+            latest: Dernières réponses
+            oldest: Anciennes réponses
+        form-sort:
+            latest: Nouveaux formulaires
+            oldest: Anciens formulaires
+        export:
+            title: Exporter les réponses
+            format: Format
+            heading: En-têtes / clés
+            fields: Champs
+            meta: Méta-données
+            more-meta: Davantages de meta
+            option-keys: Exporter les clés des options au lieu des titre pour cases à cocher, radio et menu déroulant
+            submit: Télécharger
+            preview: Aperçu
+            format-options:
+                xlsx: XLSX
+                xls: XLS
+                ods: ODS
+                csv: CSV
+                json: JSON
+            heading-options:
+                title: Titres des champs
+                key: Clés des champs
+                none: Sans en-tête
+            meta-options:
+                uid: => kilowhat-formulaire.ref.submission-meta.uid
+                user_id: => kilowhat-formulaire.ref.submission-meta.user_id
+                user_username: => kilowhat-formulaire.ref.submission-meta.user_username
+                user_displayname: => kilowhat-formulaire.ref.submission-meta.user_displayname
+                user_email: => kilowhat-formulaire.ref.submission-meta.user_email
+                user_activated: => kilowhat-formulaire.ref.submission-meta.user_activated
+                link_id: => kilowhat-formulaire.ref.submission-meta.link_id
+                locked_at: => kilowhat-formulaire.ref.submission-meta.locked_at
+                created_at: => kilowhat-formulaire.ref.submission-meta.created_at
+                updated_at: => kilowhat-formulaire.ref.submission-meta.updated_at
+                hidden_at: => kilowhat-formulaire.ref.submission-meta.hidden_at
+            preview-primitives:
+                excel-date: (DATE EXCEL)
+                boolean-true: VRAI
+                boolean-false: FAUX
+        discussion-submission:
+            empty: Aucune donnée saisie
+            edit: Modifier
+        discussion-composer:
+            field:
+                tags: Étiquettes
+                poll: Sondage
+                title: Titre
+                content: Message
+
+    api:
+        formatter-parsing-error: 'Impossible de traiter: {message}'
+        not-allowed-to-fill-field: Ce champ ne peut pas être modifié
+        duplicate-field-key: La clé devrait être unique
+        cannot-change-form-type: Il n'est pas possible de modifier le type d'un formulaire qui possède des réponses
+        unknown-form: ID de formulaire non reconnu {id}
+        unauthorized-form: Vous n'avez pas la permission de remplir le formulaire {id}
+        unauthorized-scoped-form: Vous ne pouvez pas remplir le formulaire {id} avec la sélection de tags actuelle
+        file-already-belongs-form: Le fichier {id} appartient à un formulaire différent
+        file-already-belongs-submission: Le fichier {id} appartient à une réponse différente
+        export:
+            meta:
+                uid: => kilowhat-formulaire.ref.submission-meta.uid
+                user_id: => kilowhat-formulaire.ref.submission-meta.user_id
+                user_username: => kilowhat-formulaire.ref.submission-meta.user_username
+                user_displayname: => kilowhat-formulaire.ref.submission-meta.user_displayname
+                user_email: => kilowhat-formulaire.ref.submission-meta.user_email
+                user_activated: => kilowhat-formulaire.ref.submission-meta.user_activated
+                link_id: => kilowhat-formulaire.ref.submission-meta.link_id
+                locked_at: => kilowhat-formulaire.ref.submission-meta.locked_at
+                created_at: => kilowhat-formulaire.ref.submission-meta.created_at
+                updated_at: => kilowhat-formulaire.ref.submission-meta.updated_at
+                hidden_at: => kilowhat-formulaire.ref.submission-meta.hidden_at
+
+    mail:
+        title-your-submission: Votre réponse à {title}
+        title-new-submission: Nouvelle réponse à {title}
+        edit: Modifier en ligne
+        footer: Envoyé par {title}
+        sub-entries: '{count} entrées'
+        no-answer: Sans réponse
+
+    ref:
+        manager: Gestion des formulaires
+        type:
+            standalone: Formulaires indépendants
+            discussion: Champs de discussions
+            user: Profils utilisateurs
+        permissions:
+            fill: Remplire les formulaires indépendants
+            seeOwnUser: Voir les réponses à son propre profil
+            seeAnyUser: Voir les réponses aux profils utilisateurs
+            editOwnUser: Modifier son propre profil
+            editAnyUser: Modifier les autres profils utilisateurs
+            seeOwnDiscussion: Voir ses propres champs de discussions
+            seeAnyDiscussion: Voir les autres champs de discussions
+            editOwnDiscussion: Modifier ses propres champs de discussions
+            editAnyDiscussion: Modifier les autres champs de discussions
+        submission-meta:
+            uid: ID de la réponse
+            user_id: ID de l'utilisateur
+            user_username: Nom d'utilisateur
+            user_displayname: Nom public de l'utilisateur
+            user_email: Email de l'utilisateur
+            user_activated: Compte activé
+            link_id: ID du profil/discussion
+            locked_at: Date de verrouillage
+            created_at: Date de création
+            updated_at: Date de mise à jour
+            hidden_at: Date de suppression

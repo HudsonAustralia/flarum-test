@@ -1,0 +1,60 @@
+{
+    "name": "flarum/flarum",
+    "description": "Delightfully simple forum software.",
+    "type": "project",
+    "keywords": [
+        "forum",
+        "discussion"
+    ],
+    "homepage": "https://flarum.org/",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Flarum",
+            "email": "info@flarum.org",
+            "homepage": "https://flarum.org/team"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/flarum/core/issues",
+        "source": "https://github.com/flarum/flarum",
+        "docs": "https://docs.flarum.org/"
+    },
+    "require": {
+        "afrux/online-users-widget": "*",
+        "flarum/approval": "*",
+        "flarum/bbcode": "*",
+        "flarum/core": "^1.6",
+        "flarum/emoji": "*",
+        "flarum/flags": "*",
+        "flarum/flarum-ext-embed": "^1.6",
+        "flarum/lang-english": "*",
+        "flarum/likes": "*",
+        "flarum/lock": "*",
+        "flarum/markdown": "*",
+        "flarum/mentions": "*",
+        "flarum/nicknames": "*",
+        "flarum/pusher": "*",
+        "flarum/statistics": "*",
+        "flarum/sticky": "*",
+        "flarum/subscriptions": "*",
+        "flarum/suspend": "*",
+        "flarum/tags": "*",
+        "fof/discussion-thumbnail": "*",
+        "fof/formatting": "*",
+        "fof/masquerade": "*",
+        "fof/subscribed": "*",
+        "ianm/synopsis": "^1.2",
+        "kilowhat/flarum-ext-formulaire": "^1.8"
+    },
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "repositories": {
+        "extiverse": {
+            "type": "composer",
+            "url": "https://extiverse.com/composer/"
+        }
+    }
+}

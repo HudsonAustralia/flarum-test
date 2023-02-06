@@ -1,0 +1,97 @@
+.FormulaireHeader {
+    background: #3a37a0;
+    padding: 20px;
+    min-height: 120px;
+    border-radius: @border-radius @border-radius 0 0;
+
+    color: white;
+    --text-color: white;
+
+    .FormulaireBanner {
+        font-size: 200px;
+        position: absolute;
+        right: -20px;
+        top: 20px;
+
+        @media @phone {
+            & {
+                display: none;
+            }
+        }
+    }
+
+    h1 {
+        margin: 0 0 5px 0;
+    }
+
+    .FormulaireTheme & a:not(.Button), // Override theme.less specificity
+    a {
+        color: inherit;
+    }
+
+    // It becomes very hard to see the fields if there's a background in the error message
+    .Form-group.in-error {
+        background: none;
+    }
+}
+
+.FormulaireHeader--banner {
+    overflow: hidden;
+    position: relative;
+}
+
+.FormulaireHeaderLinks {
+    margin: 15px 0 0 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+        display: inline-block;
+
+        &:not(:first-child)::before {
+            content: '-';
+            color: #ccc;
+            margin: 0 0.5em;
+        }
+    }
+}
+
+.FormulaireHeader-controls {
+    float: right;
+    --text-color: @text-color; // Restore Flarum's text color which we have overriden for the header body
+
+    .Dropdown-menu {
+        left: auto;
+        right: 0;
+    }
+}
+
+.FormulaireHeader-back {
+    font-weight: bold;
+}
+
+.FormulaireGlobalSettings {
+    background: @control-bg;
+    padding: 15px 30px;
+    border-radius: 0 0 @border-radius @border-radius;
+    column-count: 2;
+
+    h3 {
+        text-transform: uppercase;
+        color: #666;
+        margin: 0;
+        column-span: all;
+        cursor: pointer;
+
+        em {
+            text-transform: none;
+            font-weight: normal;
+            color: @muted-color;
+        }
+    }
+
+    .Form-group {
+        margin: 0;
+        padding-top: 10px; // Using padding instead of margin otherwise it won't align in multi-column
+    }
+}

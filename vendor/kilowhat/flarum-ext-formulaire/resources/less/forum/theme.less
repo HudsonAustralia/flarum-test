@@ -1,0 +1,31 @@
+@formulaire-primary-color: #3a37a0;
+@formulaire-link-color: saturate(@formulaire-primary-color, 10%);
+
+:root {
+    .Button--color-vars(@body-bg, @formulaire-primary-color, 'formulaire-button-primary');
+}
+
+// Changes the primary color on Formulaire management pages
+.FormulaireTheme {
+    // overriding link color with 2 levels of specificity conflicts with some Flarum styles
+    // There is CSS code for each required workaround below and in other files
+    a:not(.Button) {
+        color: @formulaire-link-color;
+    }
+
+    .Button--primary {
+        .Button--color-auto('formulaire-button-primary');
+
+        // Show icon instead of hiding on primary buttons
+        .Button-icon {
+            display: inline-block;
+        }
+    }
+
+    .FormControl {
+        &:focus,
+        &.focus {
+            border-color: @formulaire-primary-color;
+        }
+    }
+}

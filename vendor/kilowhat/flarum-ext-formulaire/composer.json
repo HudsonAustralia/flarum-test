@@ -1,0 +1,81 @@
+{
+    "name": "kilowhat/flarum-ext-formulaire",
+    "description": "Create standalone forms, user profiles and discussion fields in Flarum",
+    "keywords": [
+        "flarum"
+    ],
+    "type": "flarum-extension",
+    "license": "proprietary",
+    "require": {
+        "flarum/core": "^1.3",
+        "maatwebsite/excel": "^3.1",
+        "ramsey/uuid": "^4.0",
+        "ext-json": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5",
+        "flarum/lock": "*",
+        "flarum/suspend": "*",
+        "flarum/tags": "*",
+        "flarum/testing": "^1.0"
+    },
+    "authors": [
+        {
+            "name": "Clark Winkelmann",
+            "email": "clark.winkelmann@gmail.com",
+            "homepage": "https://kilowhat.net/",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "docs": "https://kilowhat.net/flarum/extensions/formulaire",
+        "forum": "https://discuss.flarum.org/d/23063"
+    },
+    "autoload": {
+        "psr-4": {
+            "Kilowhat\\Formulaire\\": "src/"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Kilowhat\\Formulaire\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "flarum-extension": {
+            "title": "Formulaire",
+            "category": "feature",
+            "icon": {
+                "name": "fas fa-poll-h",
+                "backgroundColor": "#3a37a0",
+                "color": "#fff"
+            },
+            "optional-dependencies": [
+                "clarkwinkelmann/flarum-ext-scout",
+                "flamarkt/taxonomies",
+                "flarum/lock",
+                "flarum/suspend",
+                "flarum/tags",
+                "fof/polls"
+            ]
+        },
+        "flagrow": {
+            "discuss": "https://discuss.flarum.org/d/23063"
+        }
+    },
+    "scripts": {
+        "test": [
+            "@test:integration"
+        ],
+        "test:integration": "phpunit -c tests/phpunit.integration.xml",
+        "test:setup": "@php tests/integration/setup.php"
+    },
+    "scripts-descriptions": {
+        "test": "Runs all tests.",
+        "test:integration": "Runs all integration tests.",
+        "test:setup": "Sets up a database for use with integration tests. Execute this only once."
+    }
+}

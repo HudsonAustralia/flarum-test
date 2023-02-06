@@ -1,0 +1,75 @@
+.ComposerBody-header .item-formulaire {
+    display: block;
+    margin-top: 10px;
+}
+
+// The post Composer becomes unusable if there's too much content inside. We'll enable scrolling in our fields if it goes over 500px
+.FormulaireDiscussionComposer {
+    max-height: 500px;
+    overflow: auto;
+    padding-bottom: 10px;
+
+    // Add a line to separate the fields from the content, but not when we use the special uniform layout
+    .ComposerBody:not(.Formulaire-uniform-layout) & {
+        border-bottom: 1px solid var(--control-bg); // Same as .TextEditor-controls
+    }
+
+    // When used with clarwinkelmann-composer-page extension
+    .ComposerPage & {
+        max-height: unset;
+    }
+}
+
+.Formulaire-uniform-layout {
+    .ComposerBody-header > li {
+        // Doing this here instead of for specific fields might have unwanted side effects
+        // But this is the easiest solution to target all taxonomies
+        display: block;
+    }
+
+    .item-discussionTitle,
+    .item-formulaireContentLabel {
+        margin-bottom: 10px; // Compensate for the fact Flarum removes the margin-bottom of every .Form-group that's a last-child
+    }
+
+    // This "fake" input is used for both tags and taxonomies. The base padding is a bit too big to fit the tag selector inside
+    .FormulaireTagFormControl {
+        padding-top: 5px;
+
+        // Compensate for the fact Flarum removes the margin-bottom of every .Form-group that's a last-child
+        // This code is duplicated here because it'll cover both tags and taxonomies
+        // Taxonomies are very hard to target otherwise since each item key is different
+        margin-bottom: 10px;
+    }
+
+    @media @phone {
+        .ComposerBody-header > li {
+            border-bottom: none;
+        }
+
+        .item-tags {
+            // There's a lot of wasted space at the top on mobile. Since tags is generally the first input, we'll trim it there
+            padding-top: 0;
+        }
+
+        .FormulaireTagFormControl {
+            padding-top: 2px;
+        }
+
+        .item-formulaireContentLabel {
+            padding-bottom: 0;
+            margin-bottom: 0;
+
+            label {
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+// The full-screen composer doesn't scroll either, so we'll adjust to a sensible height
+// This might be needed to rescue a user that has a very small viewport as the 500px limit above might still go out of their screen
+// By switching to the full screen composer it'll restore a usable version
+.Composer.fullScreen .FormulaireDiscussionComposer {
+    max-height: ~"calc(100vh - 300px)";
+}

@@ -1,0 +1,65 @@
+.FormulaireItemsTable {
+    width: 100%;
+
+    th, td {
+        padding: 5px 10px;
+
+        // In the SignUp modal, reduce padding to make the fields a bit larger
+        .Modal--small & {
+            padding: 5px 4px;
+        }
+
+        @media @phone {
+            padding: 5px 4px;
+        }
+    }
+
+    .FormulaireItemsHandle {
+        cursor: move;
+        text-align: center;
+        color: #aaa;
+
+        &.disabled {
+            cursor: not-allowed;
+        }
+    }
+}
+
+.FormulaireDataTable {
+    width: 100%;
+    border-collapse: collapse;
+
+    td, th {
+        padding: .75rem;
+        vertical-align: top;
+        border-top: 1px solid #dee2e6;
+    }
+
+    th {
+        text-align: inherit;
+    }
+
+    thead th {
+        vertical-align: bottom;
+        border-bottom: 2px solid #dee2e6;
+    }
+}
+
+.FormulaireFilters {
+    padding: 10px;
+    display: flex;
+
+    > *:not(:last-child) {
+        margin-right: 5px;
+        max-width: 300px; // Meant mostly for the search field
+    }
+
+    .FormulaireFilters--right {
+        margin-left: auto;
+    }
+
+    // We re-use the search style from Flarum but need to cancel the forced width so it's calculated via flex
+    .Search-input input {
+        width: auto;
+    }
+}

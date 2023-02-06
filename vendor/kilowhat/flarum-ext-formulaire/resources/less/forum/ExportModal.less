@@ -1,0 +1,95 @@
+.FormulaireExportModal {
+    .Button--primary .Button-icon {
+        display: inline-block;
+    }
+
+    .Select {
+        display: block;
+
+        select {
+            width: 100%;
+        }
+    }
+
+    .Form-group {
+        margin-bottom: 10px;
+    }
+}
+
+.FormulaireExportModal-preview {
+    background-color: @control-bg;
+    color: @control-color;
+    max-height: 90vh;
+    overflow-x: scroll;
+    overflow-y: auto;
+    padding: 0 10px;
+
+    // Same style as .Form-group label
+    h3 {
+        font-size: 14px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        color: @text-color;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+
+        th, td {
+            border: 1px #aaa solid;
+        }
+
+        th {
+            padding: 2px 5px;
+            background: #ccc;
+            color: #666;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        td {
+            padding: 2px;
+            background: white;
+        }
+    }
+
+    pre {
+        // Revert Flarum's default scroll because we want the whole panel to scroll, not the PRE
+        overflow: visible;
+    }
+}
+
+.FormulaireExportModal-code {
+    display: flex;
+
+    .numbers {
+        padding: 0 5px;
+        background: #ccc;
+        color: #666;
+        text-align: center;
+    }
+
+    .content {
+        flex-grow: 1;
+        overflow: visible; // Revert Flarum's default scroll because we want the whole panel to scroll, not the PRE
+        background: white;
+    }
+}
+
+@media @tablet-up {
+    .FormulaireExportModal-row {
+        display: flex;
+    }
+
+    .FormulaireExportModal-config {
+        width: 250px;
+    }
+
+    .FormulaireExportModal-preview {
+        width: 100px;
+        flex-grow: 1;
+        flex-shrink: 1;
+        border-left: 1px #aaa solid;
+    }
+}

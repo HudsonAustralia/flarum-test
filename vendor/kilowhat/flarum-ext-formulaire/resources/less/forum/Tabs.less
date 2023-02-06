@@ -1,0 +1,27 @@
+.FormulaireTabs {
+    padding-top: 20px;
+
+    .FormulaireTheme & a:not(.Button), // Override theme.less specificity
+    a, button {
+        display: inline-block;
+        background: none;
+        padding: 10px 15px;
+        margin-right: 8px;
+        color: white;
+        border: 1px solid white;
+        border-radius: 10px;
+        cursor: pointer;
+
+        &:hover, &.active {
+            background: white;
+            color: #3a37a0;
+            text-decoration: none;
+        }
+    }
+
+    .badge {
+        text-transform: uppercase;
+        font-weight: bold;
+        margin-left: 4px;
+    }
+}

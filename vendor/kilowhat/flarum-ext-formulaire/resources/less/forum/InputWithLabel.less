@@ -1,0 +1,38 @@
+.FormulaireInputWithLabel {
+    position: relative;
+    flex-grow: 1;
+
+    &:not(:last-child) {
+        margin-right: 10px;
+    }
+
+    .FormControl {
+        padding-top: 1.3em; // Place for the placeholder to go
+        height: auto; // Cancel Flarum fixed height
+    }
+
+    label {
+        z-index: 100;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        padding: 12px 13px 0; // Same horizontal padding as Flarum .FormControl
+        transition: 0.2s transform;
+        font-size: 1.2em;
+        transform-origin: 0 0;
+        transform: translate(0) scale(1);
+        pointer-events: none; // Don't block access to the input
+        color: #aaa;
+
+        // Ellipsis
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .FormControl:focus + label,
+    &.FormulaireInputWithLabel--with-value label {
+        transform: translate(4px, -6px) scale(0.75);
+    }
+}

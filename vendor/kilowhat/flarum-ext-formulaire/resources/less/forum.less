@@ -1,0 +1,99 @@
+@import 'forum/Composer';
+@import 'forum/Configuration';
+@import 'forum/DiscreetInput';
+@import 'forum/ExportModal';
+@import 'forum/form';
+@import 'forum/Header';
+@import 'forum/InputWithLabel';
+@import 'forum/Save';
+@import 'forum/tables';
+@import 'forum/Tabs';
+@import 'forum/theme';
+@import 'forum/validation';
+
+.FormulaireSortablePlaceholder {
+    height: 30px;
+    border: 2px dashed #aaa;
+    border-radius: @border-radius;
+    margin-bottom: 10px;
+}
+
+.FormulaireDebugPage {
+    display: flex;
+
+    > div {
+        width: 25%;
+        padding: 10px;
+    }
+}
+
+.FormulaireRichPreview {
+    background: #fafafa;
+    border-radius: @border-radius;
+    padding: 8px 13px;
+}
+
+.FormulaireRichPlaceholder {
+    color: #888;
+    font-style: italic;
+}
+
+.FormulaireRequired {
+    color: #888;
+}
+
+.FormulaireTextLength {
+    text-align: right;
+    padding: 2px 0;
+
+    .FormulaireTextLengthValue {
+        color: #888;
+    }
+
+    .FormulaireTextLengthValueTooLong {
+        color: #d00;
+    }
+}
+
+.FormulaireEditFormTab {
+    margin-top: 15px;
+}
+
+.FormulairePermissionFormGroup {
+    label {
+        display: inline-block;
+        min-width: 180px;
+        padding-right: 10px;
+    }
+}
+
+// We don't use Flarum's .containerNarrow class because it's missing the padding
+.FormulairePageContainer--narrow > .container {
+    max-width: 600px;
+}
+
+@media @phone {
+    .FormulaireFormShowPage {
+        h2.App-titleControl {
+            font-weight: normal;
+            padding: 13px;
+        }
+
+        // The side navigation is only optionally rendered, but when it is we need to hide some things
+        .sideNav {
+            .App-primaryControl {
+                // Do not show start discussion control on top of the form, it's confusing
+                display: none;
+            }
+
+            .App-titleControl {
+                // Do not show default title control because it will be empty
+                display: none;
+            }
+        }
+    }
+}
+
+.FormulairePageContainer--noSideNav {
+    margin-top: 15px; // Same as .sideNavOffset, so the margin between top menu and page is same with or without sidenav
+}

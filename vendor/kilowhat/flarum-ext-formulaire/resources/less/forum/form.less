@@ -1,0 +1,170 @@
+.FormulaireChoice-Option {
+    display: flex;
+    align-items: center;
+    min-height: 36px; // Same height as the "other" line containing the .FormControl
+
+    .Formulaire-field-display & {
+        min-height: 28px; // We can have a more compact design in readonly since there isn't any "other" field
+    }
+}
+
+.FormulaireChoice--other {
+    --formulaire-choice-other-margin: 10px;
+
+    .FormControl {
+        width: 100px; // Intentionally a small value which will be stretched by flex. If value is auto or too large it won't shrink
+        flex-grow: 1;
+        margin-left: var(--formulaire-choice-other-margin);
+    }
+}
+
+.FormulaireFAControl {
+    display: flex;
+    align-content: center;
+
+    input {
+        opacity: 0;
+        position: absolute;
+        left: -1000px;
+    }
+
+    .icon {
+        font-size: 20px;
+        margin-right: 10px;
+    }
+
+    input:focus + .icon {
+        color: @primary-color;
+    }
+
+    input[disabled] + .icon {
+        color: @muted-more-color;
+    }
+}
+
+// Re-implement Flarum direct-child styling which gets lost due to the added wrapper in between
+.Formulaire-form-group .Form-group-label label {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: var(--text-color);
+    display: block;
+}
+
+.Formulaire-field-display {
+    margin: 0 0 16px; // Margins similar to .Form-group, but a bit less (Form-group is 24px which is a bit too much)
+
+    dt {
+        font-size: 14px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    dd {
+        margin: 0;
+    }
+}
+
+@media @phone {
+    // Make the select larger on mobile to make it easier to click
+    .Formulaire-form-group .Select {
+        display: block;
+
+        select {
+            width: 100%;
+        }
+    }
+}
+
+@media @tablet-up {
+    .Formulaire-horizontal-layout {
+        .Form-group-label label {
+            margin: 6px 0 0; // Put margin on top to vertically align with text fields
+        }
+
+        .Formulaire-form-group {
+            display: flex;
+
+            .Form-group-label {
+                width: 200px;
+                flex-shrink: 0;
+            }
+
+            .Form-group-field {
+                flex-grow: 1;
+            }
+        }
+
+        .Form-group {
+            margin-bottom: 10px;
+        }
+
+        .Formulaire-field-display {
+            display: flex;
+
+            dt {
+                width: 200px;
+                flex-shrink: 0;
+                margin: 0;
+            }
+
+            dd {
+                flex-grow: 1;
+            }
+        }
+    }
+}
+
+// Cancel out the .Form-center styling in formulaire fields
+// It messes up some of the margins/paddings we use on fields like checkboxes/multi-selects
+// And also doesn't cover all fields like number inputs
+// The only place this happens in native Flarum is the signup modal
+// Original values copied back from https://github.com/flarum/framework/blob/v1.5.0/framework/core/less/common/Form.less
+// and https://github.com/flarum/framework/blob/v1.5.0/framework/core/less/common/FormControl.less
+// and https://github.com/flarum/framework/blob/v1.5.0/framework/core/less/common/Button.less
+.Form--centered .Formulaire-form-group {
+    text-align: left;
+
+    .FormControl[type=text],
+    .FormControl[type=email],
+    .FormControl[type=password] {
+        text-align: left; // Only .FormControl needs changing back, .Button is center by default
+        height: 36px; // Only .FormControl has a hard-coded height by default
+    }
+
+    .Button {
+        height: unset; // .Button doesn't have a height by default, so just unset it
+    }
+
+    .FormControl[type=text],
+    .FormControl[type=email],
+    .FormControl[type=password],
+    .Button {
+        margin: 0; // Not sure why it was set to "0 auto" in .Form-center when it apparently has no difference over the default
+        padding: 8px 13px; // .FormControl and .Button do have the same padding by default!
+
+        // Only .FormControl has a hard-coded font-size, but .Button inherits the same value through a complicated tree of rules, so we'll hard-code it
+        // Unfortunately both don't use CSS variables yet, so we can't re-use any
+        font-size: 13px;
+    }
+
+    .Form-group {
+        margin-bottom: 24px;
+    }
+
+    // Needs to make the rules more specific to apply over our overrides
+    // Otherwise the icon buttons end up not square
+    .Button--icon {
+        .Button--icon();
+    }
+
+    // Make rule more specific for SignUpModal
+    .FormulaireChoice--other .FormControl {
+        margin-left: var(--formulaire-choice-other-margin);
+    }
+}
+
+// Same as other SignUp .FormGroup, to make space between Formulaire and submit button
+.FormulaireSignUpForm {
+    margin-bottom: 12px;
+}
